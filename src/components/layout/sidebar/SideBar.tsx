@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import { useWindowDimensions } from '../../../hooks/useWindowDimensions';
 import { ISideBar } from '../../../interfaces/ISideBar';
+import SideBarMenus from './SideBarMenus';
 
 
 const SideBar: FC<ISideBar> = (props) => {
@@ -9,7 +10,9 @@ const SideBar: FC<ISideBar> = (props) => {
         return null;
     }
     return (
-        <div className="sidebar">Sidebar</div>
+        <div className="sidebar">
+            <SideBarMenus />
+        </div>
     )
 }
 export default SideBar;

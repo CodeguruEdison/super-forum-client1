@@ -5,7 +5,7 @@ import { UserProfileActions } from './UserProfileActions';
 import { userProfileInitialState } from './initialState';
 import { UserProfileSetActionType } from './UserProfileActionType';
 import produce from 'immer';
-export const UserProfileReducer: Reducer<IUserProfileState | undefined, UserProfileActions> = (state = userProfileInitialState, action) => {
+export const UserProfileReducer: Reducer<IUserProfileState, UserProfileActions> = (state = userProfileInitialState, action) => {
     switch (action.type) {
         case UserProfileSetActionType.USER_PROFILE_SET: {
             return updateUser(state, action.payload);

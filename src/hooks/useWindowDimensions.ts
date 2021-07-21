@@ -3,7 +3,6 @@ import IWindowDimension from '../interfaces/IWindowDimension';
 
 export const useWindowDimensions = (): IWindowDimension => {
     const [dimension, setDimension] = useState<IWindowDimension>({ height: 0, width: 0 });
-
     const handleResize = () => {
         setDimension({
             height: window.innerHeight,
@@ -12,9 +11,10 @@ export const useWindowDimensions = (): IWindowDimension => {
     }
     useEffect(() => {
         window.addEventListener('resize', handleResize);
+        handleResize();
         return () => {
             window.removeEventListener('resize', handleResize)
-        }
+        };
     }, [])
     return dimension;
 }
