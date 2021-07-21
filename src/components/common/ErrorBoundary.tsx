@@ -2,25 +2,29 @@ import React from 'react'
 import IErrorBoundaryProps from '../../interfaces/IErrorBoundaryProps';
 import { IErrorBoundaryState } from '../../interfaces/IErrorBoundaryState';
 import "./ErrorBoundary.css";
-class ErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBoundaryState>{
 
+class ErrorBoundary extends React.Component<
+    IErrorBoundaryProps,
+    IErrorBoundaryState
+> {
     constructor(props: IErrorBoundaryProps) {
         super(props);
         this.state = {
             hasError: false,
             error: new Error(),
-            info: { componentStack: '' }
-        }
+            info: { componentStack: "" },
+        };
     }
 
     static getDerivedStateFromError = (error: Error) => {
-        return { harError: true }
-    }
+        return { hasError: true };
+    };
+
     componentDidCatch(error: Error | null, info: object) {
         console.log("error", error);
-        this.setState({ hasError: true, error, info })
-
+        this.setState({ hasError: true, error, info });
     }
+
     render() {
         if (this.state.hasError) {
             return (
@@ -29,9 +33,11 @@ class ErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBoundaryS
                         Something has gone wrong. Please reload your screen.
                     </h2>
                 </div>
-            )
+            );
         }
+
         return this.props.children;
     }
 }
+
 export default ErrorBoundary;

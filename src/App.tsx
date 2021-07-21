@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import './App.css';
+import ErrorBoundary from './components/common/ErrorBoundary';
 import LeftMenu from './components/layout/LeftMenu';
 import Main from './components/layout/Main';
 import Nav from './components/layout/Nav';
@@ -14,7 +15,8 @@ const App: FC<IApp> = () => {
       <Nav />
       <SideBar></SideBar>
       <LeftMenu></LeftMenu>
-      <Main></Main>
+      <ErrorBoundary>{[<Main key="Main" />]}</ErrorBoundary>
+      {/* <Main></Main> */}
       <RightMenu />
     </div>
   );
