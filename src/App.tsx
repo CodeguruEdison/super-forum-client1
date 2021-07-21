@@ -5,7 +5,8 @@ import LeftMenu from './components/layout/LeftMenu';
 import Main from './components/layout/Main';
 import Nav from './components/layout/Nav';
 import RightMenu from './components/layout/RightMenu';
-import SideBar from './components/layout/SideBar';
+import SideBar from './components/layout/sidebar/SideBar';
+
 import { IApp } from './interfaces/IApp';
 
 const App: FC<IApp> = () => {

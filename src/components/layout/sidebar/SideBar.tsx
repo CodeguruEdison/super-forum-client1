@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
-import { useWindowDimensions } from '../../hooks/useWindowDimensions'
-import { ISideBar } from '../../interfaces/ISideBar'
+import { useWindowDimensions } from '../../../hooks/useWindowDimensions';
+import { ISideBar } from '../../../interfaces/ISideBar';
+
 
 const SideBar: FC<ISideBar> = (props) => {
     const { width } = useWindowDimensions();
