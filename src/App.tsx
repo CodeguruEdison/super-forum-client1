@@ -15,8 +15,8 @@ const App: FC<IApp> = () => {
       <Nav />
       <SideBar></SideBar>
       <LeftMenu></LeftMenu>
-      <ErrorBoundary>{[<Main key="Main" />]}</ErrorBoundary>
-      {/* <Main></Main> */}
+      {/* <ErrorBoundary>{[<Main key="Main" />]}</ErrorBoundary> */}
+      <Main></Main>
       <RightMenu />
     </div>
   );
