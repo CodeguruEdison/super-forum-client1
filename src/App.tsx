@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import './App.css';
-import ErrorBoundary from './components/common/ErrorBoundary';
+//import ErrorBoundary from './components/common/ErrorBoundary';
 import LeftMenu from './components/layout/LeftMenu';
 import Main from './components/layout/Main';
 import Nav from './components/layout/Nav';

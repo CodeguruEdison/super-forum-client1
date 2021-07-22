@@ -1,12 +1,14 @@
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faRegistered, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FC, useEffect } from "react";
+import { FC, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IApplicationState } from "../../../interfaces/IApplicationState";
 import { UserProfileSetActionType } from "../../../store/user/UserProfileActionType";
-import "./SideBarMenus.css";
+import Registration from "../../auth/Registration";
+import "./SidebarMenus.css";
 const SideBarMenus: FC = () => {
     const user = useSelector((state: IApplicationState) => state.user);
+    const [showRegister, setShowRegister] = useState(false);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch({
@@ -20,10 +22,23 @@ const SideBarMenus: FC = () => {
             //cleanup
         }
     }, [dispatch])
+    const handleOnClickRegister = () => {
+        setShowRegister(!showRegister);
+    }
     return (<>
         <ul>
-            <FontAwesomeIcon icon={faUser} />
-            <span className="menu-name">{user?.userName}</span>
+            <li>
+                <FontAwesomeIcon icon={faUser} />
+                <span className="menu-name">{user?.userName}</span>
+            </li>
+            <li>
+                <FontAwesomeIcon icon={faRegistered} />
+                <span className="menu-name" onClick={handleOnClickRegister}>register</span>
+                <Registration
+                    isOpen={showRegister}
+                    onClickToggle={handleOnClickRegister}
+                />
+            </li>
         </ul>
     </>)
 }

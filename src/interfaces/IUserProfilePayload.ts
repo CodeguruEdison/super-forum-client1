@@ -1,4 +1,5 @@
 export interface IUserProfilePayload {
-    id: number,
-    userName: string
+    // id: number,
+    // userName: string
+    [key: string]: string | number;
 }
