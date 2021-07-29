@@ -25,7 +25,7 @@ const Nav: FC = () => {
             <ReactModal className="modal-menu" isOpen={showMenu} onRequestClose={onRequestClose} shouldCloseOnOverlayClick={true}>
                 <SideBarMenus></SideBarMenus>
             </ReactModal>
-            <nav className="navigation">
+            <nav>
                 {getMobileMenu()}
                 <strong>SuperForum</strong>
             </nav>

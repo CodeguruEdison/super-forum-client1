@@ -5,6 +5,7 @@ import Main from '../layout/Main'
 import Nav from '../layout/Nav'
 import RightMenu from '../layout/RightMenu'
 import SideBar from '../layout/sidebar/SideBar'
+import "./Home.css";
 export const Home: FC<IHome> = (props) => {
     return (
         <div className="screen-root-container home-container">
