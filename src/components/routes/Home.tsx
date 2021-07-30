@@ -3,7 +3,7 @@ import { IHome } from '../../interfaces/IHome'
 import LeftMenu from '../layout/LeftMenu'
 import Main from '../layout/Main'
 import Nav from '../layout/Nav'
-import RightMenu from '../layout/RightMenu'
+import RightMenu from '../layout/rightMenu/RightMenu'
 import SideBar from '../layout/sidebar/SideBar'
 import "./Home.css";
 export const Home: FC<IHome> = (props) => {
