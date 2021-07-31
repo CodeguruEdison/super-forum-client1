@@ -1,6 +1,4 @@
-import { cleanup } from '@testing-library/react';
 import React, { FC, useEffect, useState } from 'react'
-import { isJsxElement, JsxEmit } from 'typescript';
 import { ITopCategory } from '../../../interfaces/ITopCategory'
 
 export const TopCategory: FC<ITopCategory> = (props) => {
