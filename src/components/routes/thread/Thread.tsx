@@ -6,8 +6,11 @@ import { getThreadById } from '../../../services/DataService';
 import Nav from '../../layout/Nav';
 import ThreadCategory from '../../main/ThreadCategory';
 import ThreadTitle from '../../main/ThreadTitle';
+import ThreadPointsBar from '../../points/ThreadPointsBar';
 import "./Thread.css";
+import ThreadBody from './ThreadBody';
 import ThreadHeader from './ThreadHeader';
+import ThreadResponseBuilder from './ThreadResponseBuilder';
 const Thread: FC<IThread> = (props) => {
     const [thread, setThread] = useState<ThreadModel | undefined>();
     const { id } = useParams<{ id: string }>();
@@ -32,8 +35,19 @@ const Thread: FC<IThread> = (props) => {
                     </ThreadHeader>
                     <ThreadCategory categoryName={thread?.category?.name} />
                     <ThreadTitle title={thread?.title} />
-                    {/* <ThreadBody  /> */}
+                    <ThreadBody body={thread?.body} />
                 </div>
+                <div className="thread-content-points-container">
+                    <ThreadPointsBar
+                        points={thread?.points || 0}
+                        responseCount={
+                            thread && thread.threadItems && thread.threadItems.length
+                        }
+                    />
+                </div>
+                <hr className="thread-section-divider" />
+                <ThreadResponseBuilder threadItems={thread?.threadItems}></ThreadResponseBuilder>
+
             </div>
         </div>
     )

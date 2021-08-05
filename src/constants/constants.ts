@@ -11,3 +11,16 @@ export const catOptions: Array<string | Option> = [
     }
 ];
 
+export const HOTKEYS: { [keyName: string]: string } = {
+    "mod+b": "bold",
+    "mod+i": "italic",
+    "mod+u": "underline",
+    "mod+`": "code",
+};
+export const initialValue = [
+    {
+        type: "paragraph",
+        children: [{ text: "Enter your post here." }],
+    },
+];
+export const LIST_TYPES = ["numbered-list", "bulleted-list"];
