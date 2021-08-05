@@ -12,18 +12,18 @@ const SideBarMenus: FC = () => {
     const [showRegister, setShowRegister] = useState(false);
     const [showLogin, setShowLogin] = useState(false);
     const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch({
-            type: UserProfileSetActionType.USER_PROFILE_SET,
-            payload: {
-                id: 1,
-                userName: "testUser"
-            },
-        })
-        return () => {
-            //cleanup
-        }
-    }, [dispatch])
+    // useEffect(() => {
+    //     dispatch({
+    //         type: UserProfileSetActionType.USER_PROFILE_SET,
+    //         payload: {
+    //             id: 1,
+    //             userName: "testUser"
+    //         },
+    //     })
+    //     return () => {
+    //         //cleanup
+    //     }
+    // }, [dispatch])
     const handleOnClickRegister = () => {
         setShowRegister(!showRegister);
     }

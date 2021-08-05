@@ -1,5 +1,6 @@
-import React, { FC, useReducer } from 'react'
+import React, { FC, useEffect, useReducer } from 'react'
 import ReactModal from 'react-modal';
+import { useDispatch } from 'react-redux';
 import { allowSubmit } from '../../common/Helpers';
 import { ILogin } from '../../interfaces/IRegistration';
 import { IUserProfileState } from '../../interfaces/IUserProfileState';
@@ -18,6 +19,20 @@ export const Login: FC<ILogin> = (props) => {
         isSubmitDisabled: true,
     }
     const [{ userName, password, resultMsg, isSubmitDisabled }, dispatch] = useReducer(UserProfileReducer, initialState);
+    const reduxDispatch = useDispatch();
+    useEffect(() => {
+        dispatch({
+            type: UserProfileSetActionType.USER_PROFILE_SET,
+            payload: {
+                id: 1,
+                userName: "testUser"
+            },
+        })
+        return () => {
+            //cleanup
+        }
+    }, [reduxDispatch])
+
     const onChangeUserName = (e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch({ type: UserProfileSetActionType.USER_PROFILE_SET, payload: { userName: e.target.value } });
         if (!e.target.value) {

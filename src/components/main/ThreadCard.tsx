@@ -6,6 +6,7 @@ import { MOBIE_WIDTH } from '../../constants/constants';
 import { useWindowDimensions } from '../../hooks/useWindowDimensions';
 import { IThreadCardProps } from '../../interfaces/IThreadCardProps';
 import Thread from '../../models/Thread';
+import ThreadPointsInline from '../points/ThreadPointsInline';
 
 const ThreadCard: FC<IThreadCardProps> = (props) => {
     const { thread } = props;
@@ -17,17 +18,7 @@ const ThreadCard: FC<IThreadCardProps> = (props) => {
     const getPoints = (thread: Thread, width: number) => {
         if (width <= 768) {
             return (
-                <label style={{
-                    marginRight: '.75em'
-                    , marginTop: '0.25em'
-                }}>
-                    {thread?.points || 0}
-                    <FontAwesomeIcon
-                        icon={faHeart}
-                        className="points-icon"
-                        style={{ marginLeft: '.2em' }}
-                    ></FontAwesomeIcon>
-                </label>
+                <ThreadPointsInline points={thread?.points || 0} />
             )
         }
         return null;

@@ -6,7 +6,7 @@ const ThreadResponseBuilder: FC<IThreadResponseBuilder> = (props) => {
     const { threadItems } = props;
     return (
         <div className="thread-body-container">
-            <strong style={{ marginLeft: '.75em' }}>Response</strong>
+            <strong style={{ marginBottom: '.75em' }}>Responses</strong>
             {
                 threadItems && threadItems.map((item) => {
                     return (

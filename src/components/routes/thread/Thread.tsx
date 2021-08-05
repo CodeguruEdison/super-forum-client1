@@ -24,15 +24,16 @@ const Thread: FC<IThread> = (props) => {
     }, [id])
     return (
         <div className="screen-root-container">
-            <div className="screen-nav-container">
+            <div className="thread-nav-container">
                 <Nav />
             </div>
             <div className="thread-content-container">
                 <div className="thread-content-post-container">
-                    <ThreadHeader userName={thread?.userName}
-                        lastModifiedOn={thread ? thread?.lastModifiedOn : new Date()}
-                        title={thread?.title} >
-                    </ThreadHeader>
+                    <ThreadHeader
+                        userName={thread?.userName}
+                        lastModifiedOn={thread ? thread.lastModifiedOn : new Date()}
+                        title={thread?.title}
+                    />
                     <ThreadCategory categoryName={thread?.category?.name} />
                     <ThreadTitle title={thread?.title} />
                     <ThreadBody body={thread?.body} />
@@ -45,9 +46,10 @@ const Thread: FC<IThread> = (props) => {
                         }
                     />
                 </div>
+            </div>
+            <div className="thread-content-response-container">
                 <hr className="thread-section-divider" />
-                <ThreadResponseBuilder threadItems={thread?.threadItems}></ThreadResponseBuilder>
-
+                <ThreadResponseBuilder threadItems={thread?.threadItems} />
             </div>
         </div>
     )
